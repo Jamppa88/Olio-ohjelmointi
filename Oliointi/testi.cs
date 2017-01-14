@@ -43,7 +43,7 @@ namespace Hello
         static void SayHello()
         {
             // määritellään muuttuja
-            string nimi = "Hello World!";
+            
             // luodaan olio Henkilo-luokasta
             Henkilo hlo = new Henkilo();
             hlo.Nimi = "Pekka Pouta";
