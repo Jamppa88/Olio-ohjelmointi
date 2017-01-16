@@ -28,9 +28,9 @@ namespace T5
         {
             int h, m, s;
             // Integerejä jaettaessa laskutoimitus jättää desimaalit pois, = profit!
-            h = t / 360;
-            m = (t - h * 360) / 60;
-            s = t - h * 360 - m * 60;
+            h = t / 3600;
+            m = (t - h * 3600) / 60;
+            s = t - h * 3600 - m * 60;
 
             Console.WriteLine("Antamasi sekunttiaika voidaan ilmaista muodossa: {0} tuntia {1} minuuttia {2} sekunttia", h, m, s);
 

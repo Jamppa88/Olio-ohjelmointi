@@ -18,7 +18,7 @@ namespace T3
             Console.Write("Anna kolmas luku > ");
             luku[2] = int.Parse(Console.ReadLine());
             sum = luku[0]+ luku[1]+ luku[2];
-            ka = sum / 3;
+            ka = sum / 3f;
             Console.WriteLine("\nLukujen summa on {0}, ja keskiarvo {1}", sum, ka);
             
             Console.ReadLine();
