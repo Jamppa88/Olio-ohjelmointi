@@ -53,6 +53,8 @@ namespace JAMK_IT
                 }
                 else if (input == "data")
                     Console.WriteLine("Data Sheet: " + jkaappi.DataSheet());
+                else if (input == "data2")
+                    Temp();
                 else if (input == "change")
                 {
                     if (jkaappi.Manufacturer == "Bosch")
@@ -60,11 +62,17 @@ namespace JAMK_IT
                     else
                         jkaappi = new Fridge("Bosch", "T-1000", 1992, "white", true);
                 }
-                   
+
                 else
                     Console.WriteLine("Tuntematon syöte!");
             }
           
+        }
+
+        static void Temp()
+        {
+            Oven uuni = new Oven("Harvia", "Inferno", 2017, "black", 0);
+            Console.WriteLine(uuni.DataSheet());
         }
     }
 }

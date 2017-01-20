@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace JAMK_IT
 {
@@ -44,6 +40,27 @@ namespace JAMK_IT
             string temp = Manufacturer + " " + Model + " " + ModelYear.ToString() + " Has Freezer: " + ((HasFreezer) ? "Yes" : "No") ;
             return temp;
         }
+    }
+    class Oven : Appliance
+    {
+        public enum Heating {Kiertoilma, Tasalämpö };
+        public int Temperature { get; set; }
+        private Heating heatType;
 
+        public Heating HeatType
+        {
+            get { return heatType; }
+            set { heatType = value; }
+        }
+        public Oven(string manu, string model, int mYear, string color, Heating type)
+            : base(manu, model, mYear, color)
+        {
+            HeatType = type;
+        }
+        public override string DataSheet()
+        {
+            string temp = Manufacturer + " " + Model + " " + ModelYear.ToString() + " Heating: " + ((HeatType == 0) ? "Kiertoilma" : "Tasalämpö");
+            return temp;
+        }
     }
 }
