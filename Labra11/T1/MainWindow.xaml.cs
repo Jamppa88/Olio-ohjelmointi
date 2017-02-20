@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -40,7 +40,7 @@ namespace T1
             muuvit.Add("Pirun pikku kätyri");
             combCode.ItemsSource = muuvit;
             tiimit = new HockeyLeague();
-            joukkueet = tiimit.GetTeams();
+            
             combTeams.ItemsSource = tiimit.GetTeams();
            
         }
@@ -52,30 +52,43 @@ namespace T1
             // HockeyTeam tiimi = new HockeyTeam("KeuPa", "Keuruu");
             // spRight.DataContext = tiimi;
             // demo 2: kytketään olio kokoelma 1. olioon
+            counter = 0;
+            joukkueet = tiimit.GetTeams();
             spRight.DataContext = joukkueet[counter];
         }
 
         private void btnBack_click(object sender, RoutedEventArgs e)
         {
-            if (counter == 0)
-                counter = 0;
-            else
+            try { 
+                if (counter == 0)
+                    counter = 0;
+                else
+                {
+                    counter--;
+                    spRight.DataContext = joukkueet[counter];
+                }
+            }catch (Exception ex)
             {
-                counter--;
-                spRight.DataContext = joukkueet[counter];
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void btnForward_click(object sender, RoutedEventArgs e)
         {
-            if (counter == joukkueet.Count - 1)
-                counter = joukkueet.Count - 1;
-            else
+            try { 
+                if (counter == joukkueet.Count - 1)
+                    counter = joukkueet.Count - 1;
+                else
+                {
+                    counter++;
+                    spRight.DataContext = joukkueet[counter];
+                }
+            }catch (Exception ex)
             {
-                counter++;
-                spRight.DataContext = joukkueet[counter];
+                MessageBox.Show(ex.Message);
             }
-                
+
+
         }
     }
 }
